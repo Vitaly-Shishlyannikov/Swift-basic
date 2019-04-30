@@ -43,10 +43,10 @@ print("Массив после удаления четных чисел и чи�
 
 // 5. Ф-ция для добавления чисел Фибоначчи
 
-func fiboNumbers (array: [UInt], count:Int) -> [UInt] {
+func fiboNumbers (array: [Double], count:Int) -> [Double] {
     var returnArray = array
-    var a: UInt = 0
-    var b: UInt = 1
+    var a: Double = 0
+    var b: Double = 1
     for _ in 0..<count {
         a += b
         b = a - b
@@ -54,8 +54,9 @@ func fiboNumbers (array: [UInt], count:Int) -> [UInt] {
     }
     return returnArray
 }
-var fiboArray = [UInt]()
-fiboArray = fiboNumbers(array: fiboArray, count: 93)
+var fiboArray = [Double]()
+fiboArray = fiboNumbers(array: fiboArray, count: 100)
+print(fiboArray)
 // В UInt влезло только 93 числа последовательности Фибоначчи, способа расширения диапазона значений без подключения библиотек я не нашел
 
 // 6. Массив из 100 элементов с различными простыми числами. Получилось кривовато, но итоговый результат верный
