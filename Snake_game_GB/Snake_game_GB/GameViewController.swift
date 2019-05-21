@@ -1,10 +1,3 @@
-//
-//  GameViewController.swift
-//  Snake_game_GB
-//
-//  Created by Vitalik on 21.05.2019.
-//  Copyright © 2019 Vit. All rights reserved.
-//
 
 import UIKit
 import SpriteKit
@@ -14,6 +7,23 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // создаем экземпляр сцены
+        let scene = GameScene(size: view.bounds.size)
+        // получаем главную область экрана
+        let skView = view as! SKView
+        // включаем отображение FPS
+        skView.showsFPS = true
+        // отображение количества объектов на экране
+        skView.showsNodeCount = true
+        // включить произвольный порядок рендеринга объектов в узле
+        skView.ignoresSiblingOrder = true
+        // режим отображения сцены, растянуть на все доступное пространство
+        scene.scaleMode = .resizeFill
+        // добавляем сцену на экран
+        skView.presentScene(scene)
+        
+        
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
