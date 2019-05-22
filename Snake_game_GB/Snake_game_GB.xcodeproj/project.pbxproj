@@ -13,6 +13,10 @@
 		587225DB2294356C00248EA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 587225D92294356C00248EA0 /* Main.storyboard */; };
 		587225DD2294356E00248EA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 587225DC2294356E00248EA0 /* Assets.xcassets */; };
 		587225E02294356E00248EA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 587225DE2294356E00248EA0 /* LaunchScreen.storyboard */; };
+		58C0557222952C4B00DCC78D /* Apple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C0557122952C4B00DCC78D /* Apple.swift */; };
+		58C0557522952FF600DCC78D /* SnakeBodyPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C0557422952FF600DCC78D /* SnakeBodyPart.swift */; };
+		58C05577229532BF00DCC78D /* SnakeHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C05576229532BF00DCC78D /* SnakeHead.swift */; };
+		58C055792295346200DCC78D /* Snake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C055782295346200DCC78D /* Snake.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		587225DC2294356E00248EA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		587225DF2294356E00248EA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		587225E12294356E00248EA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58C0557122952C4B00DCC78D /* Apple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apple.swift; sourceTree = "<group>"; };
+		58C0557422952FF600DCC78D /* SnakeBodyPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeBodyPart.swift; sourceTree = "<group>"; };
+		58C05576229532BF00DCC78D /* SnakeHead.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeHead.swift; sourceTree = "<group>"; };
+		58C055782295346200DCC78D /* Snake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snake.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,12 +65,16 @@
 			isa = PBXGroup;
 			children = (
 				587225CF2294356C00248EA0 /* AppDelegate.swift */,
+				58C0557122952C4B00DCC78D /* Apple.swift */,
 				587225D52294356C00248EA0 /* GameScene.swift */,
 				587225D72294356C00248EA0 /* GameViewController.swift */,
 				587225D92294356C00248EA0 /* Main.storyboard */,
 				587225DC2294356E00248EA0 /* Assets.xcassets */,
 				587225DE2294356E00248EA0 /* LaunchScreen.storyboard */,
 				587225E12294356E00248EA0 /* Info.plist */,
+				58C0557422952FF600DCC78D /* SnakeBodyPart.swift */,
+				58C05576229532BF00DCC78D /* SnakeHead.swift */,
+				58C055782295346200DCC78D /* Snake.swift */,
 			);
 			path = Snake_game_GB;
 			sourceTree = "<group>";
@@ -138,8 +150,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58C05577229532BF00DCC78D /* SnakeHead.swift in Sources */,
+				58C0557222952C4B00DCC78D /* Apple.swift in Sources */,
 				587225D62294356C00248EA0 /* GameScene.swift in Sources */,
 				587225D82294356C00248EA0 /* GameViewController.swift in Sources */,
+				58C0557522952FF600DCC78D /* SnakeBodyPart.swift in Sources */,
+				58C055792295346200DCC78D /* Snake.swift in Sources */,
 				587225D02294356C00248EA0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

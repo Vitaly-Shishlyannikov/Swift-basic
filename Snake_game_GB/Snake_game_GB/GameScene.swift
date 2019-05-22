@@ -11,6 +11,9 @@ import GameplayKit
 
 class GameScene: SKScene {
     
+    // добавляем змею на сцену
+    var snake: Snake?
+    
     // вызывается при первом запуске сцены
     override func didMove(to view: SKView) {
         
@@ -37,9 +40,11 @@ class GameScene: SKScene {
         // цвет рамки
         counterClockwiseButton.strokeColor = UIColor.black
         // толщина рамки
-        counterClockwiseButton.lineWidth = 8
+        counterClockwiseButton.lineWidth = 6
         // имя объекта для взаимодействия
         counterClockwiseButton.name = "counterClockwiseButton"
+        // добавляем кнопку на сцену
+        self.addChild(counterClockwiseButton)
         
         // поворот по часовой стрелке
         // создаем ноду(объект)
@@ -47,23 +52,56 @@ class GameScene: SKScene {
         // задаем круглую форму
         сlockwiseButton.path = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: 45, height: 45)).cgPath
         // указываем координаты размещения
-        сlockwiseButton.position = CGPoint(x: view.scene!.frame.minX + 30, y: view.scene!.frame.minY + 30)
+        сlockwiseButton.position = CGPoint(x: view.scene!.frame.maxX - 80, y: view.scene!.frame.minY + 30)
         // цвет заливки
         сlockwiseButton.fillColor = UIColor.white
         // цвет рамки
         сlockwiseButton.strokeColor = UIColor.black
         // толщина рамки
-        сlockwiseButton.lineWidth = 8
+        сlockwiseButton.lineWidth = 6
         // имя объекта для взаимодействия
         сlockwiseButton.name = "сlockwiseButton"
+        // добавляем кнопку на сцену
+        self.addChild(сlockwiseButton)
+        
+        // создание яблока в случайном месте при старте игры
+        createApple()
+        
+        // создание змеи в центре и добавление ее на сцену
+        snake = Snake(atPoint: CGPoint(x: view.scene!.frame.midX, y: view.scene!.frame.midY))
+        self.addChild(snake!)
     }
     
     // вызывается при нажатии на экран
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // перебираем точки касания пальцем
+        for touch in touches {
+            // определяем координаты касания
+            let touchLocation = touch.location(in: self)
+            // проверяем, есть ли в месте касания объект, кнопка
+            guard let touchedNode = self.atPoint(touchLocation) as? SKShapeNode,
+                touchedNode.name == "counterClockwiseButton" || touchedNode.name == "сlockwiseButton" else {
+                return
+            }
+            // красим кнопку
+            touchedNode.fillColor = .blue
         }
-    
+    }
+
     // вызывается при отпускании пальца от экрана
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // все то же самое при отпускании пальца
+        for touch in touches {
+            // определяем координаты отпускания
+            let touchLocation = touch.location(in: self)
+            // проверяем, есть ли в месте отпускания объект, кнопка
+            guard let touchedNode = self.atPoint(touchLocation) as? SKShapeNode,
+                touchedNode.name == "counterClockwiseButton" || touchedNode.name == "сlockwiseButton" else {
+                    return
+            }
+            // возвращаем цвет кнопки
+            touchedNode.fillColor = .white
+        }
     }
     
     // вызывается при обрыве нажатия
@@ -72,5 +110,16 @@ class GameScene: SKScene {
     
     // вызывается при обработке кадров сцены
     override func update(_ currentTime: TimeInterval) {
+    }
+    
+    // создание яблока в случайной точке сцены
+    func createApple(){
+        // генерация случайной точки на экране
+        let randX = CGFloat(arc4random_uniform(UInt32(view!.scene!.frame.maxX-5))+1)
+        let randY = CGFloat(arc4random_uniform(UInt32(view!.scene!.frame.maxY-5))+1)
+        // создаем яблоко
+        let apple = Apple(position: CGPoint(x: randX, y: randY))
+        // добавляем яблоко на сцену
+        self.addChild(apple)
     }
 }
