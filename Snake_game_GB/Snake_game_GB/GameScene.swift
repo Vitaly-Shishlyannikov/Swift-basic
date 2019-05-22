@@ -138,7 +138,7 @@ class GameScene: SKScene {
     }
 }
 
-// протокол для обработки соприкосновений
+// расширение протоколом для обработки соприкосновений
 extension GameScene: SKPhysicsContactDelegate {
     // метод отслеживания начала столкновения
     func didBegin(_ contact: SKPhysicsContact) {
@@ -159,8 +159,10 @@ extension GameScene: SKPhysicsContactDelegate {
                 // создаем новое яблоко
                 createApple()
             // столкновение со стеной
-            case CollisionCategories.EdgeBody:
-                break
+            case CollisionCategories.EdgeBody, CollisionCategories.SnakeHead:
+                let scene = GameScene(size: self.size)
+                let animation = SKTransition.crossFade(withDuration: 1)
+                self.view?.presentScene(scene, transition: animation)
             default:
                 break
         }
@@ -178,3 +180,4 @@ struct CollisionCategories {
     // край сцены(экрана)
     static let EdgeBody: UInt32 = 0x1 << 3
 }
+
