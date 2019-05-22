@@ -65,13 +65,13 @@
 			isa = PBXGroup;
 			children = (
 				587225CF2294356C00248EA0 /* AppDelegate.swift */,
-				58C0557122952C4B00DCC78D /* Apple.swift */,
-				587225D52294356C00248EA0 /* GameScene.swift */,
-				587225D72294356C00248EA0 /* GameViewController.swift */,
 				587225D92294356C00248EA0 /* Main.storyboard */,
 				587225DC2294356E00248EA0 /* Assets.xcassets */,
 				587225DE2294356E00248EA0 /* LaunchScreen.storyboard */,
 				587225E12294356E00248EA0 /* Info.plist */,
+				587225D72294356C00248EA0 /* GameViewController.swift */,
+				58C0557122952C4B00DCC78D /* Apple.swift */,
+				587225D52294356C00248EA0 /* GameScene.swift */,
 				58C0557422952FF600DCC78D /* SnakeBodyPart.swift */,
 				58C05576229532BF00DCC78D /* SnakeHead.swift */,
 				58C055782295346200DCC78D /* Snake.swift */,
