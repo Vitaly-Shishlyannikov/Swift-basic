@@ -148,6 +148,7 @@ extension GameScene: SKPhysicsContactDelegate {
         let collisionObject = bodies ^ CollisionCategories.SnakeHead
         // разбираем столкновения
         switch collisionObject {
+            
             // столкновение с яблоком
             case CollisionCategories.Apple:
                 // яблоко - один из 2 соприкоснувшихся объектов, проверяем, какой именно
@@ -158,8 +159,10 @@ extension GameScene: SKPhysicsContactDelegate {
                 apple?.removeFromParent()
                 // создаем новое яблоко
                 createApple()
+            
             // столкновение со стеной
-            case CollisionCategories.EdgeBody, CollisionCategories.SnakeHead:
+            case CollisionCategories.EdgeBody:
+                // создаем новую сцену
                 let scene = GameScene(size: self.size)
                 let animation = SKTransition.crossFade(withDuration: 1)
                 self.view?.presentScene(scene, transition: animation)
@@ -180,4 +183,3 @@ struct CollisionCategories {
     // край сцены(экрана)
     static let EdgeBody: UInt32 = 0x1 << 3
 }
-

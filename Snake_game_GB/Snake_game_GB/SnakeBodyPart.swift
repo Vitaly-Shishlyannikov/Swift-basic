@@ -24,7 +24,7 @@ class SnakeBodyPart: SKShapeNode {
         // категория змея
         self.physicsBody?.categoryBitMask = CollisionCategories.Snake
         // пересекается с границами экрана и яблоком
-        self.physicsBody?.contactTestBitMask = CollisionCategories.EdgeBody | CollisionCategories.Apple
+        self.physicsBody?.contactTestBitMask = CollisionCategories.EdgeBody | CollisionCategories.Apple | CollisionCategories.SnakeHead
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
